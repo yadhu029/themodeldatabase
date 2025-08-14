@@ -1,9 +1,9 @@
 # 🐍 Python Package Index
 
-A personal catalog of Python packages I use.
+My manually curated list of Python packages.
 
 ## 📦 Packages
 
-- [requests](requests.md) – Simple HTTP client
-- [numpy](numpy.md) – Numerical computing
-- [fastapi](fastapi.md) – Web APIs with Python
+- [requests](requests.md) – Python HTTP for Humans.
+- [numpy](numpy.md) – Fundamental package for array computing in Python
+- [fastapi](fastapi.md) – FastAPI framework, high performance, easy to learn, fast to code, ready for production
