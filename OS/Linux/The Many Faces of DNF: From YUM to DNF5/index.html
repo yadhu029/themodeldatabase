@@ -1,0 +1,1200 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../../AI/ML/CV/Vision-Foundation-Models/DINOv3/">
+      
+      
+        <link rel="next" href="../../../python/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+    
+    
+      
+        <title>The Many Faces of DNF: From YUM to DNF5 - The Model DataBase</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-many-faces-of-dnf-from-yum-to-dnf5" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="The Model DataBase" class="md-header__button md-logo" aria-label="The Model DataBase" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The Model DataBase
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Many Faces of DNF: From YUM to DNF5
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="The Model DataBase" class="md-nav__button md-logo" aria-label="The Model DataBase" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    The Model DataBase
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Artificial Intelligence (AI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ML
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            ML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI/ML/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Machine Learning (ML)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CV
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            CV
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI/ML/CV/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Vision (CV)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2_2" id="__nav_2_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Vision Foundation Models
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Vision Foundation Models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI/ML/CV/Vision-Foundation-Models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vision Foundation Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI/ML/CV/Vision-Foundation-Models/DINOv3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DINOv3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    OS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            OS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    The Many Faces of DNF: From YUM to DNF5
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    The Many Faces of DNF: From YUM to DNF5
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-quick-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Quick History
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-see-in-usrbin" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You’ll See in /usr/bin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-differences-in-dnf5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Differences in DNF5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet-old-vs-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cheat Sheet: Old vs New
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-we-are-now" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where We Are Now
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🐍 Python Package Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/fastapi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    fastapi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/numpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    numpy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/requests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    requests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-quick-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Quick History
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-see-in-usrbin" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You’ll See in /usr/bin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-differences-in-dnf5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Differences in DNF5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet-old-vs-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cheat Sheet: Old vs New
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-we-are-now" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where We Are Now
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<hr />
+<h1 id="the-many-faces-of-dnf-from-yum-to-dnf5">The Many Faces of DNF: From YUM to DNF5<a class="headerlink" href="#the-many-faces-of-dnf-from-yum-to-dnf5" title="Permanent link">&para;</a></h1>
+<p>If you’ve been around the RHEL/Fedora ecosystem for a while, you’ve probably noticed a confusing mix of package managers: <strong>yum</strong>, <strong>dnf</strong>, <strong>dnf-3</strong>, <strong>dnf4</strong>, <strong>dnf5</strong>, even <strong>microdnf</strong>. On Fedora 41 today, all of these names can exist side by side in <code>/usr/bin</code>. Let’s untangle what’s really going on.</p>
+<hr />
+<h2 id="a-quick-history">A Quick History<a class="headerlink" href="#a-quick-history" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>YUM (Yellowdog Updater, Modified)</strong>
+  The classic Python package manager used up to RHEL 7. It handled dependencies but had a reputation for being slow.</p>
+</li>
+<li>
+<p><strong>DNF (aka DNF4)</strong>
+  Introduced in Fedora 18 and adopted fully by Fedora 22 and RHEL 8. A rewrite of yum in Python 3, using the new <strong>libdnf</strong> backend. Faster, cleaner, better API support.</p>
+</li>
+<li>
+<p><strong>microdnf</strong>
+  A tiny, dependency-free variant of DNF4 for minimal container images. Good for scripted installs, but very limited compared to full dnf.</p>
+</li>
+<li>
+<p><strong>DNF5</strong>
+  A complete rewrite in <strong>C++</strong> with the <strong>libdnf5</strong> backend. Smaller footprint, faster execution, and meant to replace both DNF4 and microdnf. Fedora 41 makes this the default.</p>
+</li>
+</ul>
+<hr />
+<h2 id="what-youll-see-in-usrbin">What You’ll See in <code>/usr/bin</code><a class="headerlink" href="#what-youll-see-in-usrbin" title="Permanent link">&para;</a></h2>
+<p>On Fedora 41, a directory listing reveals the transition in action:</p>
+<ul>
+<li><code>dnf → dnf5</code> → the default command is now the C++ version.</li>
+<li><code>dnf5</code> → the actual binary (\~1.5 MB ELF, no Python needed).</li>
+<li><code>dnf4 → dnf-3</code> → legacy symlink, still calling the Python-based DNF4.</li>
+<li><code>dnf-3</code> → the DNF4 implementation in Python 3.</li>
+<li><code>yum → dnf5</code> → yum is just an alias for dnf5.</li>
+<li><code>microdnf → dnf5</code> → microdnf is fully retired.</li>
+<li><code>dnf-utils</code> helpers (<code>repoclosure</code>, <code>yumdownloader</code>, etc.) → still small Python wrappers.</li>
+</ul>
+<p>In other words: you really only have <strong>two implementations</strong> left—Python-based DNF4 (for compatibility) and C++-based DNF5 (for everything new).</p>
+<hr />
+<h2 id="key-differences-in-dnf5">Key Differences in DNF5<a class="headerlink" href="#key-differences-in-dnf5" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Performance &amp; Footprint</strong></p>
+</li>
+<li>
+<p>Written in C++, starts faster and avoids Python dependencies.</p>
+</li>
+<li>
+<p>Unifies what used to be <code>dnf</code>, <code>yum</code>, and <code>microdnf</code>.</p>
+</li>
+<li>
+<p><strong>Command Behavior Changes</strong></p>
+</li>
+<li>
+<p>Some options are stricter: short options no longer take <code>=</code>, global flags moved to per-command scope.</p>
+</li>
+<li><code>dnf updateinfo</code> → <code>dnf5 advisory</code>.</li>
+<li><code>dnf history &lt;id&gt;</code> → <code>dnf5 history info &lt;id&gt;</code>.</li>
+<li><code>dnf config-manager --add-repo URL</code> → <code>dnf5 config-manager addrepo URL</code>.</li>
+<li><code>--downloaddir</code> → <code>--destdir</code>.</li>
+<li>
+<p><code>--sec-severity</code> → <code>--advisory-severities</code>.</p>
+</li>
+<li>
+<p><strong>Removed or Changed Features</strong></p>
+</li>
+<li>
+<p>Deltarpm support is gone.</p>
+</li>
+<li><code>best=true</code> is now the default.</li>
+<li>Metadata caching handled differently (<code>dnf5-makecache.timer</code>).</li>
+<li>
+<p><code>dnf-automatic</code> replaced by <code>dnf5-automatic</code>.</p>
+</li>
+<li>
+<p><strong>System Upgrade Built-in</strong></p>
+</li>
+<li>
+<p>No plugin required. <code>dnf5 system-upgrade download --releasever=42</code> is the new workflow.</p>
+</li>
+</ol>
+<hr />
+<h2 id="cheat-sheet-old-vs-new">Cheat Sheet: Old vs New<a class="headerlink" href="#cheat-sheet-old-vs-new" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Old (dnf/yum)</th>
+<th>Fedora 41 (dnf5)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Install pkg</td>
+<td><code>dnf install foo</code></td>
+<td><code>dnf5 install foo</code></td>
+</tr>
+<tr>
+<td>Remove pkg</td>
+<td><code>dnf remove foo</code></td>
+<td><code>dnf5 remove foo</code></td>
+</tr>
+<tr>
+<td>Upgrade all</td>
+<td><code>dnf upgrade</code></td>
+<td><code>dnf5 upgrade [--minimal]</code></td>
+</tr>
+<tr>
+<td>Distro sync</td>
+<td><code>dnf distro-sync</code></td>
+<td><code>dnf5 distro-sync</code></td>
+</tr>
+<tr>
+<td>Advisory list</td>
+<td><code>dnf updateinfo list</code></td>
+<td><code>dnf5 advisory list</code></td>
+</tr>
+<tr>
+<td>Security severity</td>
+<td><code>--sec-severity=…</code></td>
+<td><code>--advisory-severities=…</code></td>
+</tr>
+<tr>
+<td>Add repo</td>
+<td><code>dnf config-manager --add-repo URL</code></td>
+<td><code>dnf5 config-manager addrepo URL</code></td>
+</tr>
+<tr>
+<td>Disable repo</td>
+<td><code>dnf config-manager --set-disabled fedora</code></td>
+<td><code>dnf5 config-manager setopt fedora.enabled=0</code></td>
+</tr>
+<tr>
+<td>Dump config</td>
+<td><code>dnf config-manager --dump</code></td>
+<td><code>dnf5 --dump-main-config</code></td>
+</tr>
+<tr>
+<td>Offline staging</td>
+<td>(N/A)</td>
+<td><code>dnf5 &lt;cmd&gt; --offline</code></td>
+</tr>
+<tr>
+<td>System upgrade</td>
+<td><code>dnf system-upgrade</code> (plugin)</td>
+<td><code>dnf5 system-upgrade</code> (built-in)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="where-we-are-now">Where We Are Now<a class="headerlink" href="#where-we-are-now" title="Permanent link">&para;</a></h2>
+<ul>
+<li>On <strong>RHEL 8/9</strong>: <code>yum</code> and <code>dnf</code> both mean <strong>DNF4 (Python)</strong>.</li>
+<li>On <strong>Fedora 41</strong>: <code>dnf</code>, <code>yum</code>, and <code>microdnf</code> all mean <strong>DNF5 (C++)</strong>.</li>
+<li><code>dnf-3</code>/<code>dnf4</code> remain for backward compatibility, but the future is DNF5.</li>
+</ul>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>What used to be a tangle of names is consolidating fast. With Fedora 41, <strong>DNF5 is the one package manager to rule them all</strong>—faster, cleaner, and consistent across desktop, server, and containers. If you’re writing scripts or documentation, start using <strong><code>dnf5</code> syntax</strong> now. The old commands are still there for compatibility, but their days are numbered.</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

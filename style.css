@@ -1,0 +1,40 @@
+body {
+  background-color: #0f0f0f;
+  color: #f0f0f0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  max-width: 600px;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  font-size: 1.25rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+
+.coming-soon {
+  font-size: 1rem;
+  font-style: italic;
+  color: #666;
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  color: #444;
+}
+
