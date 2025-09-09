@@ -1,0 +1,47 @@
+# mkdocs.yml (at repo root)
+site_name: The Model DataBase
+#docs_dir: .
+#site_dir: site
+
+# Friendly URLs (default true)
+use_directory_urls: true
+
+# Minimal navigation (omit this block to let MkDocs infer nav automatically)
+# nav:
+#   - Home: index.md
+
+#theme:
+#  name: mkdocs
+  
+theme:
+ name: material
+ logo: assets/logo.png
+ palette:
+   - scheme: default
+     primary: indigo
+     accent: indigo
+   - scheme: slate   # dark mode
+     primary: indigo
+     accent: indigo
+     toggle:
+       icon: material/weather-night
+       name: Switch to dark mode
+       
+
+
+#extra_css:
+ # - style.css
+
+markdown_extensions:
+  - toc:
+      permalink: true
+
+validation:
+  # strict but helpful link checks
+  links:
+    absolute_links: relative_to_docs
+    anchors: warn
+    unrecognized_links: warn
+
+plugins:
+  - search
