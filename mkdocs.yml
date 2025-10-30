@@ -1,6 +1,6 @@
 # mkdocs.yml (at repo root)
 site_name: The Model DataBase
-site_url: themodeldatabase.com
+site_url: https://themodeldatabase.com
 #docs_dir: .
 #site_dir: site
 
